@@ -80,7 +80,7 @@ function rootReducer(state = initialState, action) {
     }
     case TOGGLE_MODAL:{
       return{
-        ...state,modal:{show:!state.modal.show,url:action?.payload?.id?state.flowers[action.payload.id].url:""}
+        ...state,modal:{show:!state.modal.show,url:action?.payload?.id>=0?state.flowers[action.payload.id].url:""}
       }
     }
     default:

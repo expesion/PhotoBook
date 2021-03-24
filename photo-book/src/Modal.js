@@ -7,7 +7,7 @@ function Modal({src,show}) {
   return (
     <div className={showHideClassName}>
       <section className="modal-main">
-        <img src={src}/>
+        <img src={src} alt=""/>
       </section>
     </div>
   );

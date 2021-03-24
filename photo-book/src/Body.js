@@ -1,7 +1,6 @@
 import React, { useEffect } from "react";
 import { useDispatch, useSelector } from "react-redux";
 import { INITIALIZE } from "./Store/constants/action-types";
-import { initilizeFlowers } from "./Store/Actions";
 import Action from "./Nav";
 import FlowerContainer from "./FlowerContainer";
 import Modal from "./Modal";
@@ -14,7 +13,6 @@ function Body() {
         `https://raw.githubusercontent.com/Lokenath/MyRepo/master/Test/package.json`
       );
       let data = await req.json();
-      console.log(data["pics"]);
       dispatch({ type: INITIALIZE, payload: data["pics"] });
     }
     fetchData();

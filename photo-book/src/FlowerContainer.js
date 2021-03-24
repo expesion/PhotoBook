@@ -7,6 +7,7 @@ import { addComment, deleteComment, toggleModal } from "./Store/Actions";
 import "./FlowerContainer.scss";
 function FlowerContainer() {
   let globalFlowers = useSelector((state) => state.flowers);
+  let modal = useSelector((state) => state.modal);
   const [flowers, setFlowers] = useState([]);
   const searchTerm = useSelector((state) => state.search);
   const dispatch = useDispatch();
@@ -20,13 +21,11 @@ function FlowerContainer() {
         flower.category.toLowerCase().includes(searchTerm.toLowerCase())
       )
     );
-    console.log(flowers);
   }, [searchTerm]);
   useEffect(() => {
     setFlowers(globalFlowers);
   }, [globalFlowers]);
   const toggleLike = (id) => {
-    console.log(id);
     dispatch({ type: TOGGLE_LIKE, payload: id });
   };
   const postComment = (comment, id) => {
@@ -39,8 +38,7 @@ function FlowerContainer() {
     dispatch(toggleModal({ id }));
   };
   const clickModal = (e) => {
-    console.log(!!e.path[0].src);
-    if (!!!e.path[0].src) {
+    if (!!!e.path[0].src && modal.show) {
       dispatch(toggleModal());
     }
   };

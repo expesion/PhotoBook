@@ -55,8 +55,8 @@ function FlowerCard(props) {
       </span>
       <ul className="comment-list">
         {comments.map((comment, commentId) => (
-          <span style={{ display: "flex" }}>
-            <li key={uuid()}>{comment}</li>{" "}
+          <span key={uuid()} style={{ display: "flex" }}>
+            <li>{comment}</li>{" "}
             <p
               style={{ fontWeight: 600, cursor: "pointer" }}
               onClick={() => deleteComment(id, commentId)}
