@@ -44,7 +44,7 @@ function FlowerContainer() {
   };
   return (
     <div className="flowers">
-      {flowers.map((flower, i) => (
+      {flowers.map((flower) => (
         <FlowerCard
           key={uuid()}
           category={flower.category}
@@ -52,7 +52,7 @@ function FlowerContainer() {
           likes={flower.likes}
           url={flower.url}
           toggleLike={toggleLike}
-          id={i}
+          id={flower.id}
           likeStatus={flower.likeStatus}
           postComment={postComment}
           deleteComment={dltComment}

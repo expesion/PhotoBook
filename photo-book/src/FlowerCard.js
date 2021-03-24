@@ -16,7 +16,7 @@ function FlowerCard(props) {
   } = props;
   const [comment, setComment] = useState("");
   return (
-    <div style={{ border: "1px solid #5141d2", margin: "15px 27%" }}>
+    <div style={{ border: "1px solid #5141d2", margin: "15px 15%" }}>
       <span>
         <img
           style={{ maxWidth: "100%" }}

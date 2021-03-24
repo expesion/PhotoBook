@@ -24,15 +24,18 @@ function rootReducer(state = initialState, action) {
       return Object.assign({}, state, { flowers: updatedFlowers });
     case TOGGLE_LIKE: {
       let flowerId = action.payload;
-      let flower = state.flowers.find((flower) => flower.id === flowerId);
-      if (flower.likeStatus === "Like") {
-        flower.likeStatus = "Dislike";
-        flower.likes++;
-      } else {
-        flower.likeStatus = "Like";
-        flower.likes--;
-      }
-      state.flowers[flowerId] = { ...flower };
+      state.flowers.map(flower=>{
+        if(flower.id===flowerId){
+          if (flower.likeStatus === "Like") {
+            flower.likeStatus = "Unlike";
+            flower.likes++;
+          } else {
+            flower.likeStatus = "Like";
+            flower.likes--;
+          }
+        }
+        return flower;
+      })
       return {
         ...state,
         flowers: [...state.flowers],
@@ -54,9 +57,12 @@ function rootReducer(state = initialState, action) {
         flowers: [...sortedFlowers],
       };
     case POST_COMMENT: {
-      let modifiedFlowers = state.flowers[action.payload.id];
-      modifiedFlowers.comments.push(action.payload.comment);
-      state.flowers[action.payload.id] = modifiedFlowers;
+      state.flowers.map(flower=>{
+        if(flower.id===action.payload.id){
+          flower.comments.push(action.payload.comment);
+        }
+        return flower
+      })
       return {
         ...state,
         flowers: [...state.flowers],
@@ -69,9 +75,12 @@ function rootReducer(state = initialState, action) {
       };
     }
     case DELETE_COMMENT:{
-      let modifiedFlowers = state.flowers[action.payload.id];
-      modifiedFlowers.comments.splice(action.payload.commentId,1)
-      state.flowers[action.payload.id]=modifiedFlowers
+      state.flowers.map(flower=>{
+        if(flower.id===action.payload.id){
+          flower.comments.splice(action.payload.commentId,1);
+        }
+        return flower;
+      })
       return {
         ...state,
         flowers:[...state.flowers]

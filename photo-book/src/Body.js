@@ -13,6 +13,7 @@ function Body() {
         `https://raw.githubusercontent.com/Lokenath/MyRepo/master/Test/package.json`
       );
       let data = await req.json();
+      console.log(data["pics"]);
       dispatch({ type: INITIALIZE, payload: data["pics"] });
     }
     fetchData();
