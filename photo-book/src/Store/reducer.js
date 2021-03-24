@@ -5,14 +5,16 @@ import {
   MOST_LIKED,
   SEARCH_CATEGORY,
   POST_COMMENT,
+  DELETE_COMMENT,
+  TOGGLE_MODAL
 } from "./constants/action-types";
 const initialState = {
   flowers: [],
   search: "",
+  modal:{show:false,url:""}
 };
 
 function rootReducer(state = initialState, action) {
-  console.log(action);
   switch (action.type) {
     case INITIALIZE:
       let updatedFlowers = action.payload.map((flower) => ({
@@ -30,7 +32,6 @@ function rootReducer(state = initialState, action) {
         flower.likeStatus = "Like";
         flower.likes--;
       }
-      console.log(flower);
       state.flowers[flowerId] = { ...flower };
       return {
         ...state,
@@ -62,11 +63,25 @@ function rootReducer(state = initialState, action) {
       };
     }
     case SEARCH_CATEGORY: {
-      console.log(`from reducer ${action.payload}`);
       return {
         ...state,
         search: action.payload,
       };
+    }
+    case DELETE_COMMENT:{
+      let modifiedFlowers = state.flowers[action.payload.id];
+      modifiedFlowers.comments.splice(action.payload.commentId,1)
+      state.flowers[action.payload.id]=modifiedFlowers
+      return {
+        ...state,
+        flowers:[...state.flowers]
+
+      }
+    }
+    case TOGGLE_MODAL:{
+      return{
+        ...state,modal:{show:!state.modal.show,url:action?.payload?.id?state.flowers[action.payload.id].url:""}
+      }
     }
     default:
       return state;

@@ -1,10 +1,12 @@
 import React, { useEffect } from "react";
-import { useDispatch } from "react-redux";
+import { useDispatch, useSelector } from "react-redux";
 import { INITIALIZE } from "./Store/constants/action-types";
 import { initilizeFlowers } from "./Store/Actions";
 import Action from "./Nav";
 import FlowerContainer from "./FlowerContainer";
+import Modal from "./Modal";
 function Body() {
+  const modal = useSelector((state) => state.modal);
   const dispatch = useDispatch();
   useEffect(() => {
     async function fetchData() {
@@ -19,6 +21,7 @@ function Body() {
   }, [dispatch]);
   return (
     <div>
+      <Modal src={modal.url} show={modal.show} showHideClassName="" />
       <h1 style={{ margin: "0 5rem", border: "1px solid #5141d2" }}>
         PhotoBook
       </h1>

@@ -11,12 +11,19 @@ function FlowerCard(props) {
     id,
     likeStatus,
     postComment,
+    deleteComment,
+    imageClick,
   } = props;
   const [comment, setComment] = useState("");
   return (
     <div style={{ border: "1px solid #5141d2", margin: "15px 27%" }}>
       <span>
-        <img style={{ maxWidth: "100%" }} src={url} alt={category} />
+        <img
+          style={{ maxWidth: "100%" }}
+          src={url}
+          alt={category}
+          onClick={() => imageClick(id)}
+        />
       </span>
       <span className="actions">
         <p style={{ color: "red" }}>{likes}</p>
@@ -25,6 +32,7 @@ function FlowerCard(props) {
             cursor: "pointer",
             textDecoration: "underline",
             color: "#0b83ec",
+            zIndex: 10,
           }}
           onClick={() => toggleLike(id)}
         >
@@ -46,8 +54,16 @@ function FlowerCard(props) {
         </p>
       </span>
       <ul className="comment-list">
-        {comments.map((comment) => (
-          <li key={uuid()}>{comment}</li>
+        {comments.map((comment, commentId) => (
+          <span style={{ display: "flex" }}>
+            <li key={uuid()}>{comment}</li>{" "}
+            <p
+              style={{ fontWeight: 600, cursor: "pointer" }}
+              onClick={() => deleteComment(id, commentId)}
+            >
+              X
+            </p>
+          </span>
         ))}
       </ul>
     </div>
