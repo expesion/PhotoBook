@@ -1,0 +1,28 @@
+.actions {
+  display: flex;
+  border: 1px solid #5141d2;
+  p:nth-child(1),
+  p:nth-child(2) {
+    padding: 3px 20px;
+  }
+  p:nth-child(3) {
+    padding: 3px 0 3px 100px;
+  }
+}
+
+.comment {
+  display: flex;
+  input {
+    width: 80%;
+    border: 1px solid #5141d2;
+  }
+  p {
+    width: 20%;
+    border: 1px solid #5141d2;
+    font-weight: 700;
+    background-color: #74aada;
+  }
+}
+p {
+  margin: unset;
+}
