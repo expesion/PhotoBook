@@ -1,4 +1,5 @@
 .actions {
+  position: relative;
   display: flex;
   border: 1px solid #5141d2;
   p:nth-child(1),
@@ -7,6 +8,8 @@
   }
   p:nth-child(3) {
     padding: 3px 0 3px 100px;
+    position: absolute;
+    right: 10px;
   }
 }
 
@@ -25,4 +28,12 @@
 }
 p {
   margin: unset;
+}
+.comment-list {
+  li {
+    text-align: initial;
+    background-color: #0080002e;
+    padding: 2px 10px;
+    font-weight: 500;
+  }
 }

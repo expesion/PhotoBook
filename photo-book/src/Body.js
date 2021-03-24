@@ -1,6 +1,7 @@
 import React, { useEffect } from "react";
 import { useDispatch } from "react-redux";
 import { INITIALIZE } from "./Store/constants/action-types";
+import { initilizeFlowers } from "./Store/Actions";
 import Action from "./Nav";
 import FlowerContainer from "./FlowerContainer";
 function Body() {
@@ -18,7 +19,9 @@ function Body() {
   }, [dispatch]);
   return (
     <div>
-      <h1>PhotoBook</h1>
+      <h1 style={{ margin: "0 5rem", border: "1px solid #5141d2" }}>
+        PhotoBook
+      </h1>
       <Action />
       <FlowerContainer />
     </div>

@@ -1,0 +1,25 @@
+.nav {
+  display: flex;
+  height: 40px;
+  position: relative;
+  margin: 0px 5rem;
+  border: 1px solid rgb(81, 65, 210);
+  .nav-left {
+    display: flex;
+  }
+  p {
+    text-decoration: underline;
+    color: rgb(11, 131, 236);
+    padding: 5px 5px;
+    cursor: pointer;
+  }
+  input {
+    padding: 5px 5px;
+    margin: 3px 3px;
+    width: 15rem;
+  }
+  .nav-centre {
+    position: absolute;
+    left: 43%;
+  }
+}
