@@ -21,10 +21,7 @@ function FlowerContainer() {
         flower.category.toLowerCase().includes(searchTerm.toLowerCase())
       )
     );
-  }, [searchTerm]);
-  useEffect(() => {
-    setFlowers(globalFlowers);
-  }, [globalFlowers]);
+  }, [searchTerm,globalFlowers]);
   const toggleLike = (id) => {
     dispatch({ type: TOGGLE_LIKE, payload: id });
   };
