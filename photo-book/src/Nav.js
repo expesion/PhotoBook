@@ -26,12 +26,12 @@ function Actions() {
   return (
     <div className="nav">
       <span className="nav-left">
-        <p onClick={liked}>Most Liked</p>
+        <p onClick={liked} id="nav">Most Liked</p>
         <p>|</p>
-        <p onClick={commented}>Most Commented</p>
+        <p onClick={commented} id="nav">Most Commented</p>
       </span>
       <span className="nav-centre">
-        <input placeholder="Search images..." onKeyUp={debounce((e)=>onSearch(e.target.value),400)}/>
+        <input id="searchImage" placeholder="Search images..." onKeyUp={debounce((e)=>onSearch(e.target.value),400)}/>
       </span>
     </div>
   );

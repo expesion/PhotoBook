@@ -23,3 +23,15 @@
     left: 40%;
   }
 }
+@media only screen and (max-width: 768px) {
+  .nav {
+    height: 50px !important;
+  }
+  p#nav:not(:nth-child(2)) {
+    width: 33% !important;
+  }
+  input#searchImage {
+    width: 33% !important;
+    float: right;
+  }
+}
