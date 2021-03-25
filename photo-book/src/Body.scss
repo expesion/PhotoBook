@@ -1,0 +1,9 @@
+.heading {
+  margin: 0 5rem;
+  border: 1px solid #5141d2;
+}
+@media only screen and (max-width: 768px) {
+  .heading {
+    margin: 0 2rem;
+  }
+}

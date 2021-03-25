@@ -2,6 +2,7 @@ import React, { useEffect } from "react";
 import { useDispatch, useSelector } from "react-redux";
 import { INITIALIZE } from "./Store/constants/action-types";
 import Action from "./Nav";
+import "./Body.scss";
 import FlowerContainer from "./FlowerContainer";
 import Modal from "./Modal";
 function Body() {
@@ -21,7 +22,7 @@ function Body() {
   return (
     <div>
       <Modal src={modal.url} show={modal.show} showHideClassName="" />
-      <h1 style={{ margin: "0 5rem", border: "1px solid #5141d2" }}>
+      <h1 className="heading" >
         PhotoBook
       </h1>
       <Action />
