@@ -88,8 +88,9 @@ function rootReducer(state = initialState, action) {
       }
     }
     case TOGGLE_MODAL:{
+      let _=state.flowers
       return{
-        ...state,modal:{show:!state.modal.show,url:action?.payload?.id>=0?state.flowers[action.payload.id].url:""}
+        ...state,modal:{show:!state.modal.show,url:action?.payload?.id>=0?_[_.findIndex(flower=>flower.id===action.payload.id)].url:""}
       }
     }
     default:
